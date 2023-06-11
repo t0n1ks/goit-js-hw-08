@@ -7,27 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const gallery = document.querySelector('.gallery');
 
   function createGalleryItem(item) {
-    const galleryItem = document.createElement('li');
-    galleryItem.classList.add('gallery__item');
-
-    const link = document.createElement('a');
-    link.classList.add('gallery__link');
-    link.href = item.original;
-
-    const image = document.createElement('img');
-    image.classList.add('gallery__image');
-    image.src = item.preview;
-    image.alt = item.description;
-
-    link.appendChild(image);
-    galleryItem.appendChild(link);
+    // debugger;
+    const galleryItem = `<li class="gallery__item">
+                            <a class="gallery__link" href="${item.original}">
+                              <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
+                            </a>
+                        </li>`
 
     return galleryItem;
   }
 
   function renderGallery() {
     const items = galleryItems.map(item => createGalleryItem(item));
-    gallery.append(...items);
+    items.forEach(x => gallery.innerHTML += x);
   }
 
   renderGallery();

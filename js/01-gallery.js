@@ -17,9 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return galleryItem;
   }
 
-  function renderGallery() {
-    const items = galleryItems.map(item => createGalleryItem(item));
-    items.forEach(x => gallery.innerHTML += x);
+  // function renderGallery() {
+  //   const items = galleryItems.map(item => createGalleryItem(item));
+  //   items.forEach(x => gallery.innerHTML += x);
+  // }
+  function renderGallery() { 
+      const items = galleryItems.map(item => createGalleryItem(item)).join(' ');
+      gallery.insertAdjacentHTML('beforeend', items)
   }
 
   renderGallery();
